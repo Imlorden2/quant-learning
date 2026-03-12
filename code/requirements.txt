@@ -1,0 +1,21 @@
+# 量化交易分析框架依赖包
+
+# 数据处理
+pandas>=1.5.0
+numpy>=1.21.0
+
+# 数据可视化
+matplotlib>=3.6.0
+
+# 数据源
+tushare>=1.2.89
+yfinance>=0.2.0
+
+# 配置管理
+python-dotenv>=1.0.0
+
+# 可选依赖（根据需要安装）
+# scipy>=1.9.0          # 科学计算
+# scikit-learn>=1.1.0   # 机器学习
+# jupyter>=1.0.0        # Jupyter笔记本
+# plotly>=5.0.0         # 交互式图表
