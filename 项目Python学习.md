@@ -160,6 +160,11 @@ plt.show() # 显示图像
 
 ```python
 """正态分布"""
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+
+
 x = np.linspace(-4, 4, 1000)
 plt.figure(figsize=(16, 9))
 for mu, sigma in [(0, 1), (0, 0.5), (1, 1)]:
@@ -170,5 +175,89 @@ plt.legend()
 plt.grid(True)
 ```
 
+```python
+"""t 分布"""
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
 
 
+plt.figure(figsize=(16, 9))
+x = np.linspace(-4, 4, 1000)
+for df in (1, 5, 10):
+    y = stats.t.pdf(x, df)
+    plt.plot(x, y, label=f'df {df}')
+plt.title('t distribution')
+plt.grid(True)
+plt.legend()
+plt.show()
+```
+
+
+```python
+"""对数正态分布"""
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+
+plt.figure(figsize=(16, 9))
+x_log = np.linspace(0.01, 5, 1000)
+for sigma in [0.5, 1, 1.5]:
+    y = stats.lognorm.pdf(x_log, sigma)
+    plt.plot(x_log, y, label=f'LogN(0, {sigma}²)')
+plt.title('Log-normal Distribution')
+plt.legend()
+plt.grid(True)
+plt.show()
+```
+
+```python
+"""指数分布"""
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+
+plt.figure(figsize=(16, 9))
+x_exp = np.linspace(0, 5, 1000)
+for lam in [0.5, 1, 2]:
+    y = stats.expon.pdf(x_exp, scale=1 / lam)
+    plt.plot(x_exp, y, label=f'Exp(λ={lam})')
+plt.title('Exponential Distribution')
+plt.legend()
+plt.grid(True)
+plt.show()
+```
+
+```python
+"""二项分布"""
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+
+plt.figure(figsize=(16, 9))
+x_binom = np.arange(0, 21)
+for n, p in [(20, 0.3), (20, 0.5), (20, 0.7)]:
+    y = stats.binom.pmf(x_binom, n, p)
+    plt.plot(x_binom, y, 'o-', label=f'B({n}, {p})')
+plt.title('Binomial Distribution')
+plt.legend()
+plt.grid(True)
+plt.show()
+```
+
+```python
+"""泊松分布"""
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+
+plt.figure(figsize=(16, 9))
+x_poisson = np.arange(0, 15)
+for lam in [1, 3, 5]:
+    y = stats.poisson.pmf(x_poisson, lam)
+    plt.plot(x_poisson, y, 'o-', label=f'Poisson(λ={lam})')
+plt.title('Poisson Distribution')
+plt.legend()
+plt.grid(True)
+plt.show()
+```
